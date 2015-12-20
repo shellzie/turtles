@@ -1,2 +1,12 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="container jumbotron">
+  <h1>Robot App Store</h1>
+
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="invite-code">Invite Code</label>
+      <input type="text" class="form-control" id="invite-code" placeholder="">
+    </div>
+    <!--<button type="submit" class="btn btn-primary">Go</button>-->
+    <%= link_to "Go", '/static_pages/register', class: "btn btn-primary" %>
+  </form>
+</div>
