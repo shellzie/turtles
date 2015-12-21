@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
+  get 'users/new'
 
-  get 'static_pages/register'
+  root 'static_pages#home' #allows localhost:3000 to go to invite page
+  get 'home' => 'static_pages#home' #allows localhost:3000/home to also go to invite page
+  get 'register' => 'static_pages#register'
+  get 'signup'  => 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
