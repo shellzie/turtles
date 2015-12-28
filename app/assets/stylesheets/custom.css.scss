@@ -1,6 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/* general */
+// must add padding or else nav bar overlaps content: http://getbootstrap.com/components/#navbar-fixed-top
+body {
+  padding-top: 70px;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {

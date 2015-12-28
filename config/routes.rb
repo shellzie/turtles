@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
   root 'static_pages#home' #allows localhost:3000 to go to invite page
   get 'home' => 'static_pages#home' #allows localhost:3000/home to also go to invite page
-  get 'register' => 'static_pages#register'
+
+  # get 'register' => 'static_pages#register'
   get 'signup'  => 'users#new'
+
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
 
   resources :users
 
