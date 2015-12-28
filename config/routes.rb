@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root 'static_pages#home' #allows localhost:3000 to go to invite page
-  get 'home' => 'static_pages#home' #allows localhost:3000/home to also go to invite page
 
-  # get 'register' => 'static_pages#register'
+  root 'apps#index'
+  get 'code' => 'static_pages#home' #allows localhost:3000/code to also go to promo code page
+
+  get 'register' => 'static_pages#register'
   get 'signup'  => 'users#new'
 
   get    'login'   => 'sessions#new'
@@ -10,6 +11,10 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users
+  resources :apps
+  resources :turtles
+
+  post 'promo' => 'promo#validate'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

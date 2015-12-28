@@ -3,3 +3,4 @@
 /log
 /tmp/
 *.cache
+.byebug_history

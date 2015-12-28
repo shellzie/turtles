@@ -11,13 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151222194451) do
+ActiveRecord::Schema.define(version: 20160110035629) do
+
+  create_table "apps", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "promo_codes", force: :cascade do |t|
+    t.string   "code",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "turtles", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.text     "bio",               limit: 65535
+    t.string   "code",              limit: 255
+    t.datetime "last_connect_time"
+    t.string   "image_path",        limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "password_digest", limit: 255
+    t.string   "remember_digest", limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
