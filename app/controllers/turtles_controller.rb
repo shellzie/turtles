@@ -7,13 +7,24 @@ class TurtlesController < ApplicationController
   end
 
   def create
-    handle_image
+    # debugger
+
     @turtle = Turtle.new
 
-    @turtle.name = params[:turtle][:name]
-    @turtle.bio = params[:turtle][:bio]
-    @turtle.image_path = params[:turtle][:image_path].original_filename
-    @turtle.user_id = params[:turtle][:user_id]
+    if params[:turtle][:image_path].present?
+      handle_image
+      @turtle.image_path = params[:turtle][:image_path].original_filename
+    end
+
+
+    @turtle.name = params[:turtle][:name] #required to be present
+
+    if params[:turtle][:bio].present?
+      @turtle.bio = params[:turtle][:bio]
+    end
+
+
+    @turtle.user_id = params[:turtle][:user_id] #required to be present
 
     if @turtle.save
       flash[:success] = "Turtle Saved!"
@@ -26,7 +37,6 @@ class TurtlesController < ApplicationController
   private
 
     def handle_image
-
       name = params[:turtle][:image_path].original_filename
       directory = "public/images/upload"
       path = File.join(directory, name)
