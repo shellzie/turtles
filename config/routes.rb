@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :apps
   resources :turtles
 
+  get 'turtleinfo' => 'connections#turtleinfo'
+  get 'connections' => 'connections#index'
   post 'promo' => 'promo#validate'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Turtle Name</th>
+          <th>Ip Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @connections.each do |con| %>
+            <tr>
+              <td><%= con.turtle_name %></td>
+              <td><%= con.ip_address %></td>
+              <td>
+                <%= con.updated_at if con.turtle_name.present? %>
+              </td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

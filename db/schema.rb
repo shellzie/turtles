@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110035629) do
+ActiveRecord::Schema.define(version: 20160116055101) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "connections", force: :cascade do |t|
+    t.string   "ip_address",  limit: 255
+    t.text     "turtle_name", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
@@ -37,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160110035629) do
     t.string   "image_path",        limit: 255
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.integer  "user_id",           limit: 4,     null: false
   end
 
   create_table "users", force: :cascade do |t|
