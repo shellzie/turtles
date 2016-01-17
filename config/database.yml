@@ -5,9 +5,9 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
-  username: root
-  password: hello1
+  adapter: postgresql
+  username: turtle_user
+  password: password1
   host: 127.0.0.1
   database: turtles
 
@@ -22,8 +22,8 @@ test:
   database: turtles
 
 production:
-  adapter: mysql2
-  username: turtles_2d12
-  password: 24xaf894
-  host: turtles-mysql.2d12.net
+  adapter: postgresql
+  username: turtle_user
+  password: password1
+  host: <%= ENV['DATABASE_URL'] %>
   database: turtles

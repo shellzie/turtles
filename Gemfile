@@ -5,6 +5,7 @@ ruby '2.2.1'
 gem 'rails', '4.2.4'
 gem 'bcrypt'
 gem 'mysql2', '~> 0.3.10'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
