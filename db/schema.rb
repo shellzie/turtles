@@ -13,48 +13,52 @@
 
 ActiveRecord::Schema.define(version: 20160116055101) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "apps", force: :cascade do |t|
     t.string   "name",        limit: 255
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "description"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "connections", force: :cascade do |t|
-    t.string   "ip_address",  limit: 255
-    t.text     "turtle_name", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "ip_address"
+    t.text     "turtle_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "promo_codes", force: :cascade do |t|
-    t.string   "code",        limit: 255
-    t.text     "description", limit: 65535
+    t.string   "code"
+    t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "turtles", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.text     "bio",               limit: 65535
-    t.string   "code",              limit: 255
+    t.string   "name"
+    t.text     "bio"
+    t.string   "code"
     t.datetime "last_connect_time"
-    t.string   "image_path",        limit: 255
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.integer  "user_id",           limit: 4,     null: false
+    t.string   "image_path"
+    t.integer  "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",           limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "password_digest", limit: 255
-    t.string   "remember_digest", limit: 255
+    t.string   "email"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+    t.string   "remember_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "turtles", "users"
 end
