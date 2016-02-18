@@ -8,7 +8,7 @@ default: &default
   adapter: postgresql
   username: turtle_user
   encoding: UTF8
-  password: password1
+  password: asdfasdf
   host: localhost
   database: turtles
 
