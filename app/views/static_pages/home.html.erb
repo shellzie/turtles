@@ -2,44 +2,42 @@
   <h1>Robot App Store</h1>
 
   <% if current_user %>
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>App Name</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="clickable-row" data-href="/find-face">
-              <td>Find Face</td>
-              <td>Turtle moves towards people's faces</td>
-            </tr>
-            <tr class="clickable-row" data-href="/chase-ball">
-              <td>Chase Ball</td>
-              <td>Turtle will chase a ball</td>
-            </tr>
-            <tr class="clickable-row" data-href="/nav-commands">
-              <td>Navigational Commands</td>
-              <td>Turtle moves forward, backwards, left, and right with QR code cards</td>
-            </tr>
-            <tr class="clickable-row" data-href="/little-dance">
-              <td>Little Dance</td>
-              <td>Turtle will do a magic dance. Download to find out which one!</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>App Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="clickable-row" data-href="/find-face">
+            <td>Find Face</td>
+            <td>Turtle moves towards people's faces</td>
+          </tr>
+          <tr class="clickable-row" data-href="/chase-ball">
+            <td>Chase Ball</td>
+            <td>Turtle will chase a ball</td>
+          </tr>
+          <tr class="clickable-row" data-href="/nav-commands">
+            <td>Navigational Commands</td>
+            <td>Turtle moves forward, backwards, left, and right with QR code cards</td>
+          </tr>
+          <tr class="clickable-row" data-href="/little-dance">
+            <td>Little Dance</td>
+            <td>Turtle will do a magic dance. Download to find out which one!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   <% else %>
-      <form class="form-inline" method="POST" action="/promo">
-        <div class="form-group">
-          <label for="invite-code">Invite Code</label>
-          <input type="text" class="form-control" id="invite-code" placeholder="" name="code">
-        </div>
-        <button type="submit" class="btn btn-primary">Go</button>
-      </form>
+    <form class="form-inline" method="POST" action="/promo">
+      <div class="form-group">
+        <label for="invite-code">Invite Code</label>
+        <input type="text" class="form-control" id="invite-code" placeholder="" name="code">
+      </div>
+      <button type="submit" class="btn btn-primary">Go</button>
+    </form>
   <% end %>
 </div>

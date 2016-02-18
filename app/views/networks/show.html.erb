@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <span>
+      <span>Network Info</span>    <a href="<%= @network.present? && @network.id %>/edit">Edit</a>
+    </span>
+    <div>Name: <%= @network.present? && @network.name %></div>
+    <div>Password: <%= @network.present? && @network.password %></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+  <div class="networks-container">
+    <div id="network-info" data-name="<%= @network.present? && @network.name %>" data-password="<%= @network.present? && @network.password %>" 
+         data-turtle-id="<%= first_turtle.present? && first_turtle.id %>"> </div>
+    <div id="qrcode"></div>
+  </div>
+    </div>
+</div>
+
+<div class="row margin-top--large">
+  <div class="col-md-12">
+  <div>
+    Click 'Start' below, hold this QR code in front of your turtle, then wait 2 minutes.
+  </div>
+  <div>
+    If the connection is successful, a button to 'Continue' will appear.
+  </div>
+    </div>
+</div>
+
+<div class="row margin-top--large">
+  <div class="col-md-3 col-md-offset-2 timer">
+  </div>
+  <div class="col-md-3 col-md-offset-2">
+    <button class="start">Start</button>
+  </div>
+  <div class="col-md-3 col-md-offset-2 result">
+
+  </div>
+
+
+</div>

@@ -1,5 +1,5 @@
 $ ->
-  if ($("#qrcode").length > 0)
+  if ($(".apps-container #qrcode").length > 0)
     app_id = window.location.pathname.split("/")[2];
     new QRCode(document.getElementById("qrcode"), app_id)
 

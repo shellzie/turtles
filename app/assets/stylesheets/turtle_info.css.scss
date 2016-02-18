@@ -1,0 +1,17 @@
+.turtle-info {
+  .name {
+    font-size: 20px;
+  }
+
+  .bio {
+    font-size: 16px;
+  }
+
+  .photo {
+    background-image: image-url("upload/turtle_small.png");
+    height: 250px;
+    width: 350px;
+    background-repeat: no-repeat;
+    margin-top: 20px;
+  }
+}

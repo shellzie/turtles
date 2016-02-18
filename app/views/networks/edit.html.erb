@@ -1,0 +1,19 @@
+<h1>Update Network Settings</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@network) do |f| %>
+        <%= render 'shared/error_messages', obj: @network %>
+
+        <%= f.label :name, "Network Name" %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :password, "Password" %>
+        <%= f.text_field :password, class: 'form-control' %>
+
+        <%= f.hidden_field :turtle_id, :value => first_turtle.id %>
+
+        <%= f.submit "Connect", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

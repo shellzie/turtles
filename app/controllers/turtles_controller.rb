@@ -10,22 +10,15 @@ class TurtlesController < ApplicationController
     # debugger
 
     @turtle = Turtle.new
-
     if params[:turtle][:image_path].present?
       handle_image
       @turtle.image_path = params[:turtle][:image_path].original_filename
     end
-
-
     @turtle.name = params[:turtle][:name] #required to be present
-
     if params[:turtle][:bio].present?
       @turtle.bio = params[:turtle][:bio]
     end
-
-
     @turtle.user_id = params[:turtle][:user_id] #required to be present
-
     if @turtle.save
       flash[:success] = "Turtle Saved!"
       redirect_to root_url
