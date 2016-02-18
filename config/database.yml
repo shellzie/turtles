@@ -25,6 +25,6 @@ test:
 production:
   adapter: postgresql
   username: turtle_user
-  password: password1
+  password: asdfadsfasd
   host: <%= ENV['DATABASE_URL'] %>
   database: turtles
