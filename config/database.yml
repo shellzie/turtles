@@ -8,7 +8,7 @@ default: &default
   adapter: postgresql
   username: turtle_user
   encoding: UTF8
-  password: asdfasdf
+  password: password1
   host: localhost
   database: turtles
 
@@ -22,7 +22,10 @@ test:
   <<: *default
   database: turtles
 
-production:
+#heroku specifies it's own values for the prod database. it doesn't read database.yml file unless there are params
+# in addition to the params specified in this hash => {"adapter"=>"postgresql", "username"=>"wrwffumhxfkmpl",
+#"password"=>"nMKP5L0TN1zLsOGgmleO4vNOyn", "port"=>5432, "database"=>"df3hjmohj7pimb", "host"=>"ec2-107-21-120-109.compute-1.amazonaws.com"}
+#production:
 #  adapter: postgresql
 #  username: turtle_user
 #  password: asdfadsfasd
