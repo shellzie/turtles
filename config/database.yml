@@ -23,8 +23,8 @@ test:
   database: turtles
 
 production:
-  adapter: postgresql
-  username: turtle_user
-  password: asdfadsfasd
-  host: <%= ENV['DATABASE_URL'] %>
-  database: turtles
+#  adapter: postgresql
+#  username: turtle_user
+#  password: asdfadsfasd
+#  host: <%= ENV['DATABASE_URL'] %>
+#  database: turtles
