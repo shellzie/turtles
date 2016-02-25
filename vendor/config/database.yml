@@ -24,6 +24,6 @@ test:
 production:
   adapter: mysql2
   username: turtles_2d12
-  password: 24xaf894
+  password:
   host: turtles-mysql.2d12.net
   database: turtles

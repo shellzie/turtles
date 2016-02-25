@@ -5,6 +5,7 @@ class ConnectionsController < ApplicationController
     if (params[:turtle_name].present? && params[:ip_address].present?)
       @connection.turtle_name = params[:turtle_name]
       @connection.ip_address = params[:ip_address]
+      @connection.turtle_id = params[:turtle_id]
       @connection.updated_at = params[:updated_at]
     end
 

@@ -10,9 +10,12 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  get 'connect_result' => 'networks#connect_result'
+
   resources :users
   resources :apps
   resources :turtles
+  resources :networks
 
   get 'turtleinfo' => 'connections#turtleinfo'
   get 'connections' => 'connections#index'
