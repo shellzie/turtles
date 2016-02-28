@@ -10,6 +10,7 @@ class AppsController < ApplicationController
     @apps = App.all
     @first_network = first_network
     @connection = last_connection(@first_turtle.id)
+    @last_connect_time = @connection.updated_at.in_time_zone("America/Los_Angeles")
   end
 
   def show

@@ -12,7 +12,7 @@
         <h3>Network Settings</h3>
         <% if @first_network.present? && @connection.present? %>
           <div>
-            <div class="last-connect-time">Last Connection Time: <%= @connection.updated_at %></div>
+            <div class="last-connect-time">Last Connection Time: <%= @last_connect_time %></div>
             <div class="nw-name">Network Name: <%= @first_network.name %></div>
             <div class="ip-address">IP Address: <%= @connection.ip_address %></div>
           </div>
