@@ -10,7 +10,15 @@
       </div>
       <div class="col-md-6">
         <h3>Network Settings</h3>
-        <a class="btn btn-primary" href="networks/new" role="button">Connect Turtle to Network</a>
+        <% if @first_network.present? && @connection.present? %>
+          <div>
+            <div class="last-connect-time">Last Connection Time: <%= @connection.updated_at %></div>
+            <div class="nw-name">Network Name: <%= @first_network.name %></div>
+            <div class="ip-address">IP Address: <%= @connection.ip_address %></div>
+          </div>
+        <% else %>
+          <a class="btn btn-primary" href="networks/new" role="button">Connect Turtle to Network</a>
+        <% end %>
       </div>
     </div>
 <% else %>
