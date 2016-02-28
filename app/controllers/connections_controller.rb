@@ -18,7 +18,8 @@ class ConnectionsController < ApplicationController
   end
 
   def index
-    @connections = Connection.all
+    @connections = Connection.all.order(created_at: :desc)
+
   end
 
 end
