@@ -6,11 +6,13 @@ class AppsController < ApplicationController
   include ConnectionsHelper
 
   def index
-    @first_turtle = first_turtle
     @apps = App.all
+    @first_turtle = first_turtle
     @first_network = first_network
-    @connection = last_connection(@first_turtle.id)
-    @last_connect_time = @connection.updated_at.in_time_zone("America/Los_Angeles")
+    if @first_turtle.present? && first_network.present?
+      @connection = last_connection(@first_turtle.id)
+      @last_connect_time = @connection.updated_at.in_time_zone("America/Los_Angeles")
+    end
   end
 
   def show
