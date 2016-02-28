@@ -14,7 +14,7 @@ $ ->
     pollInterval = 10000 #query DB every 10 secs
 
   if ($(".networks-container #qrcode").length > 0)
-    new QRCode(document.getElementById("qrcode"), {text:"ti="+turtle_id+"&nm="+name+"&pw="+password, width:"500", height:"500"})
+    new QRCode(document.getElementById("qrcode"), {text:"connect:ti="+turtle_id+"&nm="+name+"&pw="+password, width:"500", height:"500"})
 #    new QRCode(document.getElementById("qrcode"), {text:"http://bit.ly/1XPgXKj"})
 
   $(".start").on 'click', (event) =>
