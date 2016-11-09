@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  post 'ios_validate' => 'sessions#validate'
   get 'connect_result' => 'networks#connect_result'
 
   resources :users

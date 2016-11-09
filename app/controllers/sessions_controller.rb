@@ -15,6 +15,16 @@ class SessionsController < ApplicationController
     end
   end
 
+  def validate
+    user = User.find_by(email: params[:email].downcase)
+    if user && user.authenticate(params[:password])
+      log_in user
+      render :nothing => true, :status => 200
+    else
+      render :nothing => true, :status => 404
+    end
+  end
+
   def destroy
     log_out if logged_in?
     redirect_to login_url
