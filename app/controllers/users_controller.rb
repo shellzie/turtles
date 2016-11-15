@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   include UsersHelper
 
-  before_action :logged_in_user, except: [:new, :create]
-  before_action :correct_user,   except: [:new, :create]
+  before_action :logged_in_user, except: [:new, :create, :register]
+  before_action :correct_user,   except: [:new, :create, :register]
 
   def show
     @user = User.find(params[:id])
@@ -20,6 +20,21 @@ class UsersController < ApplicationController
       redirect_to root_url
     else
       render 'new'
+    end
+  end
+
+  #called from ios app.
+  def register
+    @user = User.new
+    @user.email = params[:email]
+    @user.password = params[:password]
+    if @user.save
+
+      log_in @user
+      render :nothing => true, :status => 200
+    else
+
+      render :nothing => true, :status => 404
     end
   end
 

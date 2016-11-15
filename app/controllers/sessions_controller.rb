@@ -15,7 +15,10 @@ class SessionsController < ApplicationController
     end
   end
 
-  def validate
+  #separate login method for mobile since params are not stored in params[:sessions] they are stored
+  # in params[:email] and also we don't have to use 'remember me' cookie since xcode
+  #remembers user via UserPreferences structure
+  def login
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       log_in user
