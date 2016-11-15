@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+
   get 'connect_result' => 'networks#connect_result'
 
   resources :users
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
   get 'turtleinfo' => 'connections#turtleinfo'
   get 'connections' => 'connections#index'
   post 'promo' => 'promo#validate'
+
+  #API for iOS app
+  post 'ios_login' => 'sessions#login'
+  post 'ios_register' => 'users#register'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
