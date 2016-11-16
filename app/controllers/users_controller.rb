@@ -25,15 +25,15 @@ class UsersController < ApplicationController
 
   #called from ios app.
   def register
+    byebug
+    logger.debug "+++++++++ in register func+++++++++++++"
     @user = User.new
     @user.email = params[:email]
     @user.password = params[:password]
     if @user.save
-
       log_in @user
       render :nothing => true, :status => 200
     else
-
       render :nothing => true, :status => 404
     end
   end

@@ -19,6 +19,8 @@ class SessionsController < ApplicationController
   # in params[:email] and also we don't have to use 'remember me' cookie since xcode
   #remembers user via UserPreferences structure
   def login
+    byebug
+    Rails.logger.debug "++++++++++ in login func+++++++++++"
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       log_in user
