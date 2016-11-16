@@ -1,9 +1,12 @@
 class SessionsController < ApplicationController
 
   def new
+    logger.debug "+++++++++++ in sessions controller, new func++++++"
   end
 
   def create
+    byebug
+    logger.debug "++++++++++ in sessions controller, create func+++++++++++++C"
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
