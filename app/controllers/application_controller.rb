@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   #TODO: should have a specific domain listed here rather than allowing *
   def cors
+    debugger
+    Rails.log.debug "++++++++ in CORS method+++++++++"
     headers["Access-Control-Allow-Origin"]  = '*'
     headers["Access-Control-Allow-Methods"] = 'POST, PUT, DELETE, GET, OPTIONS'
     headers['Access-Control-Request-Method'] = '*'
