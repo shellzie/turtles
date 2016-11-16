@@ -25,8 +25,8 @@ class UsersController < ApplicationController
 
   #called from ios app.
   def register
-    debugger
-    Rails.logger.debug "++++++++++ in register func"
+    byebug
+    logger.debug "++++++++++ in register func"
     @user = User.new
     @user.email = params[:email]
     @user.password = params[:password]
