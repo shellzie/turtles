@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   #remembers user via UserPreferences structure
   def login
     byebug
-    logger.debug "++++++++++ in login func"
+    logger.debug "++++++++++ in login fun"
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       log_in user
