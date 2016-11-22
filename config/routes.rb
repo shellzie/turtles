@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   #API for iOS app
   post 'ios_login' => 'sessions#login'
   post 'ios_register' => 'users#register'
+  post 'ios_promo' => 'promo#validate_ios'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

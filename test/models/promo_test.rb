@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PromoCodeTest < ActiveSupport::TestCase
+class PromoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

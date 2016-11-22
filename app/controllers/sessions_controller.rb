@@ -1,12 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
-    logger.debug "+++++++++++ in sessions controller, new func++++++"
   end
 
   def create
-    byebug
-    logger.debug "++++++++++ in sessions controller, create func+++++++++++++"
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
@@ -22,7 +19,6 @@ class SessionsController < ApplicationController
   # in params[:email] and also we don't have to use 'remember me' cookie since xcode
   #remembers user via UserPreferences structure
   def login
-    byebug
     logger.debug "++++++++++ in login fun"
     user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
