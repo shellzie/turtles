@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   post 'ios_login' => 'sessions#login'
   post 'ios_register' => 'users#register'
   post 'ios_promo' => 'promo#validate_ios'
+  post 'ios_turtle_profile' => 'turtles#populate_profile'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
