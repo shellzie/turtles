@@ -29,7 +29,8 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     if @user.save
-      log_in @user
+      # log_in @user using tokens instead of storing login in session
+      authenticate_user(@user)
       render :nothing => true, :status => 200
     else
       render :nothing => true, :status => 404
