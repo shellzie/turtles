@@ -1,5 +1,8 @@
+require 'authentication'
+
 class UsersController < ApplicationController
   include UsersHelper
+  include Authentication
 
   before_action :logged_in_user, except: [:new, :create, :register]
   before_action :correct_user,   except: [:new, :create, :register]
@@ -29,9 +32,9 @@ class UsersController < ApplicationController
     @user.email = params[:email]
     @user.password = params[:password]
     if @user.save
-      # log_in @user using tokens instead of storing login in session
+      # log in the user using tokens instead of storing login info in session
       authenticate_user(@user)
-      render :nothing => true, :status => 200
+      # render :nothing => true, :status => 200
     else
       render :nothing => true, :status => 404
     end

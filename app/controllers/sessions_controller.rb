@@ -1,7 +1,6 @@
 require 'authentication'
 
 class SessionsController < ApplicationController
-
   include Authentication
 
   def new
@@ -37,20 +36,5 @@ class SessionsController < ApplicationController
     log_out if logged_in?
     redirect_to login_url
   end
-
-  # when this method is called from login(), we assume existence of 'user'. (it is NOT null)
-  # def authenticate_user(user)
-  #   render json: payload(user)
-  # end
-  #
-  # private
-  #
-  # def payload(user)
-  #   return nil unless user and user.id
-  #   {
-  #       auth_token: JsonWebToken.encode({user_id: user.id}),
-  #       user: {id: user.id, email: user.email}
-  #   }
-  # end
 end
 
