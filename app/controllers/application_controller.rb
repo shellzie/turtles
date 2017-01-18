@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     head(:ok) if request.request_method == "OPTIONS"
   end
 
-  #JWT Token stuff below. copy/pasted from https://www.sitepoint.com/introduction-to-using-jwt-in-rails/
+  #JWT Token stuff below. copy+pasted from https://www.sitepoint.com/introduction-to-using-jwt-in-rails/
   protected
 
   def authenticate_request!
