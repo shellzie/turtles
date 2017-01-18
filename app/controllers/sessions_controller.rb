@@ -1,4 +1,7 @@
+require 'authentication'
+
 class SessionsController < ApplicationController
+  include Authentication
 
   def new
   end
@@ -17,15 +20,15 @@ class SessionsController < ApplicationController
 
   #separate login method for mobile since params are not stored in params[:sessions] they are stored
   # in params[:email] and also we don't have to use 'remember me' cookie since xcode
-  #remembers user via UserPreferences structure
+  #remembers user via UserPreferences structure. Using a JWT to check if mobile user is authenticated.
   def login
-    logger.debug "++++++++++ in login fun"
-    user = User.find_by(email: params[:email].downcase)
+    email_downcase = params[:email].downcase
+    user = User.find_by email: email_downcase
     if user && user.authenticate(params[:password])
-      log_in user
-      render :nothing => true, :status => 200
+      authenticate_user(user)
     else
-      render :nothing => true, :status => 404 #record not found
+      #   render :nothing => true, :status => 404 #record not found
+      render nothing: true, json: {errors: ['Invalid Username/Password']}, status: :unauthorized
     end
   end
 
@@ -34,3 +37,4 @@ class SessionsController < ApplicationController
     redirect_to login_url
   end
 end
+
