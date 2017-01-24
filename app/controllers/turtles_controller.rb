@@ -1,6 +1,6 @@
 class TurtlesController < ApplicationController
   include UsersHelper
-  before_action :logged_in_user
+  before_action :logged_in_user, :except => [:populate_profile]
 
   def new
     @turtle = Turtle.new
@@ -27,20 +27,25 @@ class TurtlesController < ApplicationController
 
   #api for ios app
   def populate_profile
-    byebug
-    debug
     logger.debug "+++++++++++ in populate profile++++++++++++++"
+
     @turtle = Turtle.new
     # if params[:turtle][:image_path].present?
     #   handle_image
     #   @turtle.image_path = params[:turtle][:image_path].original_filename
     # end
 
-    @turtle.name = params[:turtle][:name] #required to be present
-    if params[:turtle][:bio].present?
-      @turtle.bio = params[:turtle][:bio]
-    end
-    @turtle.user_id = params[:turtle][:user_id] #required to be present
+    # @turtle.name = params[:turtle][:name] #required to be present
+    # if params[:turtle][:bio].present?
+    #   @turtle.bio = params[:turtle][:bio]
+    # end
+    @turtle.name = "michelle_pet"
+    @turtle.hobbies = params[:hobbies]
+    @turtle.color = params[:color]
+    @turtle.dance = params[:dances]
+    @turtle.music = params[:music]
+    @turtle.phrase = params[:phrase]
+    @turtle.user_id = params[:user_id] #required to be present
 
     if @turtle.save
       render :nothing => true, :status => 200
