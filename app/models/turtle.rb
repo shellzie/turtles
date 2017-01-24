@@ -8,6 +8,7 @@ class Turtle < ActiveRecord::Base
   validates :birthdate, presence: false
 
 
+  validates :user_id, presence: true
   validates :bio, presence: false, length: {maximum: 200}
   validates :hobbies, presence: false, length: {maximum: 100}
   validates :color, presence: false, length: {maximum: 100}

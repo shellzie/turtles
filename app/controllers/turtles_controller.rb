@@ -27,7 +27,7 @@ class TurtlesController < ApplicationController
 
   #api for ios app
   def populate_profile
-    logger.debug "+++++++++++ in populate profile++++++++++++++"
+
 
     @turtle = Turtle.new
     # if params[:turtle][:image_path].present?
@@ -39,13 +39,17 @@ class TurtlesController < ApplicationController
     # if params[:turtle][:bio].present?
     #   @turtle.bio = params[:turtle][:bio]
     # end
-    @turtle.name = "michelle_pet"
+
+    users_email = params[:user_email]
+    user = User.find_by(email: users_email)
+
+    @turtle.name = params[:name]
     @turtle.hobbies = params[:hobbies]
     @turtle.color = params[:color]
     @turtle.dance = params[:dances]
     @turtle.music = params[:music]
     @turtle.phrase = params[:phrase]
-    @turtle.user_id = params[:user_id] #required to be present
+    @turtle.user_id = user.id
 
     if @turtle.save
       render :nothing => true, :status => 200
